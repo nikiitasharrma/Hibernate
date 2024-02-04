@@ -16,13 +16,19 @@ public class App
     	SessionFactory factory = new Configuration().configure().buildSessionFactory();
     	
     	Student student = new Student();
-    	student.setId(21);
-    	student.setName("Manan");
-    	student.setCity("London");
+    	student.setId(22);
+    	student.setName("Ritik");
+    	student.setCity("Jaipur");
+    	
+    	Certificate certi = new Certificate();
+    	certi.setCourse("Hibernate");
+    	certi.setDuration("1 month");
+    	
+    	student.setCerti(certi);
     	
     	Address address = new Address();
-    	address.setStreet("Baker street");
-    	address.setCity("London");
+    	address.setStreet("MI road");
+    	address.setCity("Jaipur");
     	address.setInIndia(false);
     	address.setAddedDate(new Date());
     	

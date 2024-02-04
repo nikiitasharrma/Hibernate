@@ -12,18 +12,9 @@ public class Student {
 	private String name;
 	
 	private String city;
-
-	public Student(int id, String name, String city) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.city = city;
-	}
 	
-	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	private Certificate certi;
+
 
 	public int getId() {
 		return id;
@@ -49,9 +40,17 @@ public class Student {
 		this.city = city;
 	}
 
+	public Certificate getCerti() {
+		return certi;
+	}
+
+	public void setCerti(Certificate certi) {
+		this.certi = certi;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", city=" + city + "]";
+		return "Student [id=" + id + ", name=" + name + ", city=" + city + ", certi=" + certi + "]";
 	}
 	
 }
