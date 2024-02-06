@@ -77,6 +77,20 @@ public class App
         
         tx.commit();
         
+        //fetching records
+        Employee emp = session.get(Employee.class, 1);
+        List<Project> list = emp.getProject();
+        
+        for(Project p : list) {
+        	System.out.println(p.getName());
+        }
+        
+        Project pro = session.get(Project.class, 1);
+        List<Employee> plist = pro.getEmployee();
+        
+        for(Employee e : plist) {
+        	System.out.println(e.getName());
+        }
         session.close();
         
         factory.close();
