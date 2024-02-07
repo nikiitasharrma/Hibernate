@@ -55,6 +55,15 @@ public class App
         	System.out.println(c.getName());
         }
         
+        //Pagination
+        q.setFirstResult(0);
+        q.setMaxResults(3);
+        List<Company> l = q.getResultList();
+        for(Company c : l) {
+        	System.out.println(c.getId() + " " + c.getName() + " " + c.getCity());
+        }
+        	
+        
       //WHERE clause
         String query2 = "from Company where city='Gurugram'";
         
