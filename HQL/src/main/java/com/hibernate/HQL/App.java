@@ -1,5 +1,6 @@
 package com.hibernate.HQL;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -78,8 +79,33 @@ public class App
         	System.out.println(c.getName());
         }
         
-        session.close();
+        //delete query
+        Transaction ts = session.beginTransaction();
+        Query q4 = session.createQuery("delete from Company where city=:c");
+        q4.setParameter("c", "Bangalore");
+        int result = q4.executeUpdate();
+        System.out.println(result);
+        ts.commit();
         
+        //update query
+        Transaction tc = session.beginTransaction();
+        Query q5 = session.createQuery("update Company c set c.city=:ct where c.name=:n");
+        q5.setParameter("ct", "Delhi");
+        q5.setParameter("n", "PTC");
+        int res = q5.executeUpdate();
+        System.out.println(res);
+        tc.commit();
+//        
+        
+        //Using JOINS
+        Query q6 = session.createQuery("select p.name, a.type from Person as p INNER JOIN p.accounts as a");
+        List<Object []> list = q6.getResultList();
+        for(Object[] ob : list) {
+        	System.out.println(Arrays.toString(ob));
+        }
+        
+
+        session.close();
         factory.close();
     }
 }
